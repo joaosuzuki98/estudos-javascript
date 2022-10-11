@@ -59,7 +59,10 @@
         <!-- SAÍDA  -->
         <div class="card m-5">
             <div class="card-body">
-                <p class="text-center" id="resposta">Joãozinho pode assistir ao filme?</p>
+                <p class="text-center" id="resposta">Joãozinho pode assistir ao filme?<br>
+                    <span class="fw-bold fs-1" id="resposta-txt"></span>
+                </p>
+
             </div>
         </div>
 
@@ -79,15 +82,20 @@
     <script>
         var entrada = document.getElementById('entrada')
 
-        entrada.addEventListener('submit', () => {
+        entrada.addEventListener('submit', (e) => {
             let nomeFilme = document.getElementById('filme').value
             let classificacao = document.getElementById('classificacao').value
 
+            let respostaTxt = document.getElementById('resposta-txt')
+
             if (classificacao >= 18) {
-                alert('Joãozinho você não pode ver esse filme.')
+                respostaTxt.innerText = 'Joãozinho você não pode ver esse filme'
             } else {
-                alert('Pode entrar Joãozinho')
+                respostaTxt.innerText = 'Pode entrar Joãozinho'
             }
+
+            // Evita a atualização da página no evento submit
+            e.preventDefault()
         })
     </script>
 </body>
