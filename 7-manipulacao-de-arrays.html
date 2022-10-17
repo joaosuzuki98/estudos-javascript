@@ -95,11 +95,13 @@
                 //preenche a array jogadores
                 jogadores.push(nomeDigitado)
             } else {
-                
-            }
+                // sorteia um jogador
+                let sorteio = Math.round(Math.random()*totalJogadores)
 
-            if (contador > totalJogadores) {
-                alert('Limite alcançado')
+                if(sorteio > 3){
+                    return
+                }
+                document.getElementById('sorteado').innerText = `O jogador sorteado foi ${jogadores[sorteio]}`
             }
             
             console.log(jogadores)
